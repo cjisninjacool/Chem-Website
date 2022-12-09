@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="topnav">
+        <a class ="active" href="#">Home</a>
+        <a href="https://christianhart.w3spaces.com/elementserch.html">Element Search</a>
+        <a href="https://quizlet.com/explanations/textbook-solutions/chemistry-6th-edition-9780618221561">Quizlet Answers</a>
+        <a  href="https://christianhart.w3spaces.com/Calculator.html">Molar mass Calculator</a>
+        <a href="">Bug Fixes</a>
+    </div>
+    <h1>Bug Fixes & Updates</h1>
+    <h3>This is where the release notes and bug fixes are </h3>
+    <div id = "Fixes"></div>
+
+        <script>
+            let updates = ["Release 1 12/3/22 - Released version 1.1","Update 1.1 12/7/22 - Added element logos to Molar Mass Calculator"];
+            function Start(){
+                for(i=updates.length -1;i>-1;i--){
+                    update = updates[i];
+                    div = document.getElementById("Fixes");
+                    p = document.createElement("p");
+                    p.innerHTML = update;
+                    div.appendChild(p);
+                }
+            }
+            Start();
+        </script>
+
+      </div>
+</body>
+</html>

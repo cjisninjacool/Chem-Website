@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
+</head>
+<body>
+    <div>
+        <input type="text" id="pwd" name="password" />
+        <input onclick="mySubmit(this)" type="submit">
+        <div id = "WrongPass"></div>
+    </div>
+    <script>
+        pass = "39518a96a3b3239a2f109057ad769aedeff22483ad2505b69c0ce0f32b87b1a53dc128f637cbc418e3e01aaa17a2c5cf47ae09f57692cf44e743f238f251d8d7"
+        function redirect(hash){
+            window.location.replace("https://christianhart.w3spaces.com/"+hash+".html");
+        }
+        function mySubmit(obj) {
+            var pwdObj = document.getElementById('pwd');
+            var hashObj = new jsSHA("SHA-512", "TEXT", {numRounds: 1});
+            hashObj.update(pwdObj.value);
+            var hash = hashObj.getHash("HEX");
+
+            if(hash == pass){
+                console.log("passed")
+                redirect(hash)
+            }
+            else if (document.getElementById("WrongPass").innerHTML == ""){
+                pas = document.createElement("h4")
+                pas.style.color = "red"
+                pas.innerHTML = "Wrong Password"
+                document.getElementById("WrongPass").appendChild(pas);
+            }
+        }
+    </script>
+</body>
+</html>
